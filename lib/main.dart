@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'description_place.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,35 +15,10 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: Scaffold(
-          appBar: AppBar(title: Text("Segundo Reto")),
-          body: Stack(
-            children: [
-              Image(
-                image: NetworkImage(
-                    'https://r1.ilikewallpaper.net/iphone-wallpapers/download/74731/nightlight-iphone-wallpaper-ilikewallpaper_com.jpg'),
-                fit: BoxFit.cover,
-                height: double.infinity,
-                width: double.infinity,
-              ),
-              Center(
-                child: Container(
-                  color: Color.fromRGBO(1, 1, 1, 0.5),
-                  padding: EdgeInsets.all(20.00),
-                  width: double.infinity,
-                  child: Text(
-                    'Noche estrellada',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 35,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              )
-            ],
+          appBar: AppBar(
+            title: Text('Hola Mundo'),
           ),
+          body: new DescriptionPlace(),
         ));
   }
 }
