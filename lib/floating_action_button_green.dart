@@ -7,28 +7,35 @@ class FloatingActionButtonGreen extends StatefulWidget {
   }
 }
 
-class _FloatingActionButtonGreen extends State<FloatingActionButtonGreen> {
-  bool _pressed = false;
+class _FloatingActionButtonGreen extends State<FloatingActionButtonGreen>
+    with AutomaticKeepAliveClientMixin {
+  IconData icon;
 
-  void onPressedFav() {
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
+  void initState() {
+    super.initState();
+    this.icon = Icons.favorite_border;
+  }
+
+  void onFavPressed() {
     setState(() {
-      _pressed = !this._pressed;
+      this.icon == Icons.favorite_border
+          ? this.icon = Icons.favorite
+          : this.icon = Icons.favorite_border;
     });
-
-    Scaffold.of(context).showSnackBar(SnackBar(
-        content: Text(this._pressed
-            ? "Agregaste a tus Favoritos"
-            : "Eliminaste este sitio de tus Favoritos")));
   }
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      backgroundColor: Color(0xFF11DA53),
+      backgroundColor: Color(0xFF11FA53),
       mini: true,
-      tooltip: "Fav",
-      onPressed: onPressedFav,
-      child: Icon(this._pressed ? Icons.favorite : Icons.favorite_border),
+      tooltip: 'Favorite',
+      child: Icon(this.icon),
+      onPressed: onFavPressed,
     );
   }
 }
